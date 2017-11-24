@@ -1,7 +1,7 @@
 class Admin::RestaurantsController < ApplicationController
   before_action :authenticate_user! #Devise 提供的預設方法，檢查使用者是否登入
   before_action :authenticate_admin #等下我們要自己手工定義的方法，檢查使用者身份是否為「管理者」。
-  before_action :set_restaurant, only: [:show, :edit, :update]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   def index
     @restaurants = Restaurant.all
   end
@@ -38,6 +38,12 @@ class Admin::RestaurantsController < ApplicationController
       render :edit
       flash[:alert] = "restaurant was failed to update"
     end
+  end
+
+  def destroy
+    @restaurant.destroy
+    redirect_to admin_restaurants_path
+    flash[:alert] = "restaurant was deleted"
   end
 
   private
