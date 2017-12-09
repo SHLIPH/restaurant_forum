@@ -1,5 +1,5 @@
-class Admin::RestaurantsController < ApplicationController
-  
+class Admin::RestaurantsController < Admin::BaseController
+
   before_action :authenticate_admin #等下我們要自己手工定義的方法，檢查使用者身份是否為「管理者」。
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
