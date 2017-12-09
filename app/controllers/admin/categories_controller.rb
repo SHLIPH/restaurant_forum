@@ -1,5 +1,5 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :authenticate_user!
+  
   before_action :authenticate_admin
   before_action :set_category, only: [:update, :destroy]
 
@@ -37,7 +37,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    
+
     @category.destroy
     flash[:alert] = "category was successfully deleted"
     redirect_to admin_categories_path
