@@ -1,5 +1,6 @@
 class Admin::BaseController < ApplicationController
-  before_action :authenticate_user! #Devise 提供的預設方法，檢查使用者是否登入
+
+  before_action :authenticate_admin
 
   private
   def authenticate_admin
