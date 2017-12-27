@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+
+
+    <%= form_for [@user] do |f| %>
+      <div class="form-group">
+        <%= f.label :name, "Name" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :intro, "Intro" %>
+        <%= f.text_area :intro, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :avatar, "Avatar" %>
+        <%= image_tag @user.avatar, width: '300px' if @user.avatar? %>
+        <%= f.file_field :avatar %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
