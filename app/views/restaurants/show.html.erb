@@ -21,11 +21,9 @@
       <hr>
       <%= link_to 'Dashboard', dashboard_restaurant_path(@restaurant), class: "btn btn-primary" %>
       <%= render partial: "shared/favorite", locals: {restaurant: @restaurant} %>
-      <% if current_user.like?(@restaurant) %>
-        <%= link_to 'unlike', unlike_restaurant_path(@restaurant), method: :post, class: "btn btn-primary" %>
-      <% else %>
-        <%= link_to 'like', like_restaurant_path(@restaurant), method: :post, class: "btn btn-primary" %>
-      <% end %>
+      <%= render partial: "shared/like", locals: {restaurant: @restaurant} %>
+
+
     </div>
 
     <div class="clearfix"></div>
