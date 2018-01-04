@@ -20,4 +20,8 @@ class User < ApplicationRecord
   def admin?
     self.role == "admin"
   end
+
+  def like?(restaurant)
+    self.liked_restaurants.include?(restaurant)
+  end
 end
