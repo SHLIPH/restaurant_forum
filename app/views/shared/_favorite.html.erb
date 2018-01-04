@@ -3,3 +3,4 @@
 <% else %>
   <%= link_to 'Favorite', favorite_restaurant_path(restaurant), method: :post, class: "btn btn-primary" %>
 <% end %>
+<span>收藏數：<%= restaurant.favorites_count %></span>

@@ -1,0 +1,27 @@
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li role="presentation"><%= link_to "首頁", root_path %></li>
+    <li role="presentation"><%= link_to "最新動態", feeds_restaurants_path %></li>
+    <li role="presentation" class="active"><%= link_to "Top 10人氣排行", ranking_restaurants_path %></li>
+  </ul>
+  <h1>Top 10 人氣餐廳</h1>
+  <% @restaurant.each do |restaurant| %>
+    <div class="row">
+      <div class="col-md-4">
+        <% for img_id in 0...12 %>
+          <% if image_path(restaurant.image).include?('/'+img_id.to_s+'.jpg') %>
+            <%= image_tag('/seed_img/'+img_id.to_s+'.jpg', class: "img-responsive center-block") %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-md-8">
+        <h3><%= restaurant.name %></h3>
+        <p class="label label-default"><%= restaurant.category.name %><p>
+        <p><%= truncate(restaurant.description, length: 80) %></p>
+        <%= link_to 'Show', restaurant_path(restaurant), class: "btn btn-primary" %>
+        <%= render partial: "shared/favorite", locals: {restaurant: restaurant} %>
+      </div>
+    </div>
+  </br>
+  <% end %>
+</div>
