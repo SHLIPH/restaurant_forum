@@ -3,6 +3,7 @@
     <li role="presentation"><%= link_to "首頁", root_path %></li>
     <li role="presentation"><%= link_to "最新動態", feeds_restaurants_path %></li>
     <li role="presentation" class="active"><%= link_to "Top 10人氣排行", ranking_restaurants_path %></li>
+    <li role="presentation"><%= link_to "美食達人", users_path %></li>
   </ul>
   <h1>Top 10 人氣餐廳</h1>
   <% @restaurant.each do |restaurant| %>
