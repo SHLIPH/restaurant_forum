@@ -27,4 +27,8 @@ class User < ApplicationRecord
   def like?(restaurant)
     self.liked_restaurants.include?(restaurant)
   end
+
+  def following?(user)
+    self.followings.include?(user)
+  end
 end
