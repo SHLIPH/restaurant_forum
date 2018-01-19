@@ -15,6 +15,15 @@
         <% end %>
       <div class="caption">
         <%= render partial: "shared/follow", locals: {user: user} %>
+
+
+        <% if user != current_user %>
+          <% if current_user.friending?(user)%>
+            <%= link_to 'Unfriend', friendship_path(user), method: :delete, class: "btn btn-info" %>
+          <% else %>
+            <%= link_to 'Friend', friendships_path(friending_id: user), method: :post, class: "btn btn-primary" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   <% end %>
